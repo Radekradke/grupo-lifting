@@ -24,13 +24,15 @@ export const ESPACOS: readonly WhatItem[] = [
   { num: 'COMUM',   titulo: 'Vestiários',               desc: 'Vestiários completos com armários para as equipes operacionais.' },
 ]
 
-export const GALERIA = [
+export type GaleriaItem = { src: string; alt: string; legenda: string; wide?: boolean }
+
+export const GALERIA: readonly GaleriaItem[] = [
   { src: '/assets/log/dsc0103.jpg',    alt: 'Pátio operacional com empilhadeira de grande porte', legenda: 'Pátio operacional — movimentação com empilhadeira', wide: true },
   { src: '/assets/log/containers.jpeg',alt: 'Containers na área de armazenagem',                  legenda: 'Área de containers' },
   { src: '/assets/log/galpao.png',     alt: 'Interior de galpão para locação',                    legenda: 'Galpão de 300 m² para locação' },
   { src: '/assets/log/wa-1.jpeg',      alt: 'Mini escavadeira em operação na base',               legenda: 'Operação na base — mini escavadeira' },
   { src: '/assets/log/img-1.png',      alt: 'Escritórios com vista para a Baía de Guanabara',     legenda: 'Escritórios com vista para a baía' },
-] as const
+]
 
 export const CLIENTES = [
   { src: '/assets/logos/cliente-4subsea.png', alt: '4Subsea' },
