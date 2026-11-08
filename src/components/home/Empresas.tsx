@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Icon, type IconName } from '@/components/site/Icon'
 import { LogoMarquee, type Logo } from '@/components/site/Logos'
+import { Contador } from '@/components/site/Contador'
 import { SERVICOS_ELETRICA, DESTAQUES_INSTITUTO, NUMEROS_LOGISTICA, FEATURES_LOGISTICA } from '@/data/home'
 
 const d = (ms: number) => ({ '--d': `${ms}ms` }) as React.CSSProperties
@@ -10,7 +11,7 @@ export function BlocoEletrica() {
   return (
     <section id="eletrica" className="section section--white theme-eletrica" aria-labelledby="eletrica-titulo">
       <div className="container empresa">
-        <figure className="empresa__media empresa__media--alta" data-reveal>
+        <figure className="empresa__media empresa__media--alta" data-reveal="media">
           <Image
             src="/assets/eletrica/reparo-motor.jpg"
             alt="Técnicos da Lifting em manutenção de motor elétrico"
@@ -51,7 +52,7 @@ export function BlocoInstituto() {
   return (
     <section id="instituto" className="section section--accent-dark theme-instituto" aria-labelledby="instituto-titulo">
       <div className="container empresa empresa--inv">
-        <figure className="empresa__media empresa__media--alta" data-reveal>
+        <figure className="empresa__media empresa__media--alta" data-reveal="media">
           <Image
             src="/assets/inst/irata-acao.jpg"
             alt="Aluno em treinamento de acesso por cordas IRATA no centro de treinamento do Instituto"
@@ -99,7 +100,7 @@ export function BlocoLogistica() {
   return (
     <section id="logistica" className="section section--tint theme-logistica" aria-labelledby="logistica-titulo">
       <div className="container" style={{ display: 'grid', gap: 'clamp(36px, 5vw, 64px)' }}>
-        <figure className="banda" data-reveal>
+        <figure className="banda" data-reveal="media">
           <Image
             src="/assets/log/patio-escavadeira.jpg"
             alt="Galpões operacionais e mini escavadeira na base da Lifting Logistic"
@@ -112,7 +113,9 @@ export function BlocoLogistica() {
             {NUMEROS_LOGISTICA.map(n => (
               <div key={n.label}>
                 <dt>{n.label}</dt>
-                <dd>{n.valor}</dd>
+                <dd>
+                  <Contador valor={n.valor} />
+                </dd>
               </div>
             ))}
           </dl>

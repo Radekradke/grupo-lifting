@@ -92,7 +92,7 @@ export default async function EletricaPage() {
                 conclusão dos serviços.
               </p>
             </div>
-            <figure className="split__media" data-reveal style={d(100)}>
+            <figure className="split__media" data-reveal="media" style={d(100)}>
               <Image
                 src="/assets/eletrica/reparo-motor.jpg"
                 alt="Técnicos da Lifting em manutenção de motor elétrico"

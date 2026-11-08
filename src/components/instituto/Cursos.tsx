@@ -28,6 +28,7 @@ function grupoDe(categoria: string): Exclude<FiltroId, 'todos'> {
 /** Lista de cursos com filtro por área. Valores não são exibidos: cada curso leva ao WhatsApp. */
 export function Cursos({ cursos, whatsapp }: { cursos: readonly Curso[]; whatsapp: string }) {
   const [filtro, setFiltro] = useState<FiltroId>('todos')
+  const [trocou, setTrocou] = useState(false)
 
   const contagem = useMemo(() => {
     const n: Record<string, number> = { todos: cursos.length }
@@ -41,7 +42,10 @@ export function Cursos({ cursos, whatsapp }: { cursos: readonly Curso[]; whatsap
     <>
       <div className="filtros" role="group" aria-label="Filtrar cursos por área">
         {FILTROS.filter(f => (contagem[f.id] ?? 0) > 0).map(f => (
-          <button key={f.id} type="button" className="filtro" aria-pressed={filtro === f.id} onClick={() => setFiltro(f.id)}>
+          <button key={f.id} type="button" className="filtro" aria-pressed={filtro === f.id} onClick={() => {
+              setFiltro(f.id)
+              setTrocou(true)
+            }}>
             {f.label}
             <small>{contagem[f.id]}</small>
           </button>
@@ -52,9 +56,14 @@ export function Cursos({ cursos, whatsapp }: { cursos: readonly Curso[]; whatsap
         {visiveis.length} {visiveis.length === 1 ? 'curso' : 'cursos'} na lista
       </p>
 
-      <div className="cursos">
-        {visiveis.map(curso => (
-          <details className="curso" key={curso.idx + curso.titulo} open={curso.aberto}>
+      <div className="cursos" key={filtro} data-anim={trocou || undefined}>
+        {visiveis.map((curso, i) => (
+          <details
+            className="curso"
+            key={curso.idx + curso.titulo}
+            open={curso.aberto}
+            style={{ '--i': Math.min(i, 8) } as React.CSSProperties}
+          >
             <summary>
               <span>
                 <span className="curso__cat">{curso.categoria}</span>

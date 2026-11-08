@@ -74,7 +74,7 @@ export default async function LogisticaPage() {
                 estrutura de alto padrão em localização privilegiada.
               </p>
             </div>
-            <figure className="split__media split__media--retrato" data-reveal style={d(100)}>
+            <figure className="split__media split__media--retrato" data-reveal="media" style={d(100)}>
               <Image
                 src="/assets/log/recepcao.jpg"
                 alt="Recepção da Lifting Logistics, com o painel de clientes ao fundo"
@@ -116,7 +116,7 @@ export default async function LogisticaPage() {
               </div>
               <ul className="galeria">
                 {galeria.map((f, i) => (
-                  <li key={f.src} data-reveal style={d(Math.min(i, 6) * 50)}>
+                  <li key={f.src} data-reveal="media" style={d(Math.min(i, 6) * 50)}>
                     <figure style={{ position: 'absolute', inset: 0 }}>
                       <Image
                         src={f.src}

@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import { Contador } from './Contador'
 
 type Props = {
   empresa: string
@@ -45,7 +46,9 @@ export function PageHero({ empresa, rotulo, titulo, lead, imagem, acoes, fatos }
               {fatos.map(f => (
                 <div key={f.valor}>
                   <dt>{f.label}</dt>
-                  <dd>{f.valor}</dd>
+                  <dd>
+                    <Contador valor={f.valor} />
+                  </dd>
                 </div>
               ))}
             </dl>

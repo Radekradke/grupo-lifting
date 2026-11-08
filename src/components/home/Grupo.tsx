@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { Icon } from '@/components/site/Icon'
+import { Contador } from '@/components/site/Contador'
 import { FATOS, VERBOS } from '@/data/home'
 
 export function Fatos() {
@@ -12,7 +13,7 @@ export function Fatos() {
             <div className="fato" key={f.valor} data-reveal style={{ '--d': `${i * 70}ms` } as React.CSSProperties}>
               <dt>{f.label}</dt>
               <dd>
-                {f.valor}
+                <Contador valor={f.valor} />
                 <small>{f.unidade}</small>
               </dd>
             </div>
@@ -53,7 +54,7 @@ export function Grupo() {
           </ul>
         </div>
 
-        <figure className="grupo__media" data-reveal style={{ '--d': '120ms' } as React.CSSProperties}>
+        <figure className="grupo__media" data-reveal="media" style={{ '--d': '120ms' } as React.CSSProperties}>
           <Image
             src="/assets/grupo/sede.jpg"
             alt="Prédio principal da base do Grupo Lifting, com a bandeira do Brasil"

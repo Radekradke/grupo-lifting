@@ -88,7 +88,7 @@ export default async function InstitutoPage() {
                 </span>
               </div>
             </div>
-            <figure className="split__media" data-reveal style={d(100)}>
+            <figure className="split__media" data-reveal="media" style={d(100)}>
               <Image
                 src="/assets/inst/sobre-laboratorio-turma.jpg"
                 alt="Instrutor e alunos em aula prática no laboratório do Instituto"
@@ -133,7 +133,7 @@ export default async function InstitutoPage() {
             </div>
             <ul className="bento">
               {ESTRUTURA.map((c, i) => (
-                <li className="bento__card" key={c.titulo} data-reveal style={d(Math.min(i, 5) * 60)}>
+                <li className="bento__card" key={c.titulo} data-reveal="media" style={d(Math.min(i, 5) * 60)}>
                   {c.img && (
                     <Image
                       src={c.img.src}
