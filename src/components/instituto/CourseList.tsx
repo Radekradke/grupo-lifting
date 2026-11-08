@@ -1,6 +1,6 @@
-import { CURSOS, CATEGORIAS } from '@/data/instituto'
+import { CURSOS, CATEGORIAS, type Curso } from '@/data/instituto'
 
-export function CourseList() {
+export function CourseList({ cursos = CURSOS }: { cursos?: readonly Curso[] }) {
   return (
     <>
       <div className="course-cats" aria-hidden="true">
@@ -12,7 +12,7 @@ export function CourseList() {
       </div>
 
       <div className="course-list">
-        {CURSOS.map(curso => (
+        {cursos.map(curso => (
           <details className="course-item" key={curso.idx} open={curso.aberto}>
             <summary>
               <span className="course-item__idx">{curso.idx}</span>
@@ -26,6 +26,12 @@ export function CourseList() {
 
             <div className="course-item__panel">
               <p className="course-item__desc">{curso.desc}</p>
+
+              {curso.valor && (
+                <p className="course-item__desc" style={{ marginBottom: 14 }}>
+                  <strong style={{ color: 'var(--accent)' }}>Investimento:</strong> {curso.valor}
+                </p>
+              )}
 
               {curso.unidades && (
                 <ul className="unit-list">

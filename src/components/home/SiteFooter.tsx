@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { SITE } from '@/data/site'
+import type { Contato } from '@/sanity/content'
 
 const COLUNAS = [
   {
@@ -36,7 +36,7 @@ const COLUNAS = [
   },
 ]
 
-export function SiteFooter() {
+export function SiteFooter({ grupo }: { grupo: Contato['grupo'] }) {
   return (
     <footer className="site-footer">
       <div className="site-footer__cols">
@@ -50,8 +50,8 @@ export function SiteFooter() {
             />
           </Link>
           <p className="site-footer__about">
-            Especializada em serviços offshore, navais e industriais — {SITE.grupo.endereco}.{' '}
-            {SITE.grupo.isos}.
+            Especializada em serviços offshore, navais e industriais — {grupo.endereco}.{' '}
+            {grupo.isos}.
           </p>
         </div>
 

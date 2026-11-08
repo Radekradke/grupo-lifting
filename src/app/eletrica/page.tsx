@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { SubHeader }    from '@/components/shared/SubHeader'
 import { SubHero }      from '@/components/shared/SubHero'
 import { SubWork }      from '@/components/shared/SubWork'
@@ -8,7 +9,7 @@ import { VideoFrame }   from '@/components/shared/VideoFrame'
 import { ScrollReveal } from '@/components/shared/ScrollReveal'
 import { WppFloat }     from '@/components/shared/WppFloat'
 import { SERVICOS, NAV_ELETRICA } from '@/data/eletrica'
-import { SITE } from '@/data/site'
+import { getSite, getVideos, getParceiros } from '@/sanity/content'
 
 export const metadata: Metadata = {
   title: 'Lifting elétrica — Grupo Lifting',
@@ -16,7 +17,13 @@ export const metadata: Metadata = {
     'Assistência técnica elétrica e comercial na área naval e industrial: reparo, manutenção, instalação, inspeção e automação — com equipe própria, especializada e certificada.',
 }
 
-export default function EletricaPage() {
+export default async function EletricaPage() {
+  const [site, videos, parceiros] = await Promise.all([
+    getSite(),
+    getVideos(),
+    getParceiros('parceiro'),
+  ])
+
   return (
     <div className="page theme-eletrica">
       <SubHeader nome="LIFTING ELÉTRICA" nav={NAV_ELETRICA} />
@@ -38,7 +45,7 @@ export default function EletricaPage() {
           <div className="sub-section__inner">
             <p className="eyebrow">APRESENTAÇÃO</p>
             <h2>Conheça de perto o nosso trabalho.</h2>
-            <VideoFrame note="Vídeo de apresentação — serviços em campo e bancada. Informe a URL de embed na prop src." />
+            <VideoFrame src={videos.eletrica} note="Vídeo de apresentação — informe a URL de embed no painel (/studio → Vídeos)." />
           </div>
         </section>
 
@@ -81,10 +88,16 @@ export default function EletricaPage() {
           <div className="sub-section__inner">
             <p className="eyebrow">PARCEIROS</p>
             <h2>Quem confia na gente, opera com a gente.</h2>
-            <div className="partner-row">
-              {Array.from({ length: 6 }, (_, i) => (
-                <div className="partner-ph" key={i}>{`LOGO ${i + 1}`}</div>
-              ))}
+            <div className={`partner-row${parceiros.length ? ' partner-row--logos' : ''}`}>
+              {parceiros.length > 0
+                ? parceiros.map(p => (
+                    <div className="partner-logo" key={p.nome}>
+                      <Image src={p.src} alt={p.nome} width={160} height={52} />
+                    </div>
+                  ))
+                : Array.from({ length: 6 }, (_, i) => (
+                    <div className="partner-ph" key={i}>{`LOGO ${i + 1}`}</div>
+                  ))}
             </div>
           </div>
         </section>
@@ -95,7 +108,7 @@ export default function EletricaPage() {
           texto="Procuramos técnicos e engenheiros que levam segurança e qualidade a sério. Envie seu currículo e venha operar com a gente."
           botao={{
             label: 'ENVIAR CURRÍCULO',
-            href: `mailto:${SITE.grupo.email}?subject=${encodeURIComponent('Currículo — Lifting Elétrica')}`,
+            href: `mailto:${site.grupo.email}?subject=${encodeURIComponent('Currículo — Lifting Elétrica')}`,
           }}
         />
       </main>
@@ -103,15 +116,15 @@ export default function EletricaPage() {
       <SubFooter
         intro="Fale direto com a nossa equipe — ou com o grupo, que direciona para o braço certo."
         canais={[
-          { label: SITE.grupo.telefone, href: SITE.grupo.telefoneHref },
-          { label: SITE.grupo.email,    href: `mailto:${SITE.grupo.email}` },
+          { label: site.grupo.telefone, href: site.grupo.telefoneHref },
+          { label: site.grupo.email,    href: `mailto:${site.grupo.email}` },
         ]}
-        onde={`Base de apoio — ${SITE.grupo.endereco}`}
+        onde={`Base de apoio — ${site.grupo.endereco}`}
         barraEsquerda="© 2026 Grupo Lifting — Lifting elétrica"
-        barraDireita={SITE.grupo.isos}
+        barraDireita={site.grupo.isos}
       />
 
-      <WppFloat phone={SITE.grupo.whatsapp} />
+      <WppFloat phone={site.grupo.whatsapp} />
       <ScrollReveal />
     </div>
   )

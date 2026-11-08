@@ -1,7 +1,7 @@
-import { SITE } from '@/data/site'
+import type { Contato } from '@/sanity/content'
 
-export function CtaFinal() {
-  const { telefone, telefoneHref, email } = SITE.grupo
+export function CtaFinal({ grupo }: { grupo: Contato['grupo'] }) {
+  const { telefone, telefoneHref, email } = grupo
 
   return (
     <section id="contato" className="cta">

@@ -8,8 +8,8 @@ import { WhatGrid }     from '@/components/shared/WhatGrid'
 import { VideoFrame }   from '@/components/shared/VideoFrame'
 import { ScrollReveal } from '@/components/shared/ScrollReveal'
 import { WppFloat }     from '@/components/shared/WppFloat'
-import { NUMEROS, ESTRUTURA, ESPACOS, GALERIA, CLIENTES, NAV_LOGISTICA } from '@/data/logistica'
-import { SITE } from '@/data/site'
+import { NUMEROS, ESTRUTURA, ESPACOS, NAV_LOGISTICA } from '@/data/logistica'
+import { getSite, getVideos, getGaleria, getParceiros } from '@/sanity/content'
 
 export const metadata: Metadata = {
   title: 'Lifting Logistic — Grupo Lifting',
@@ -17,7 +17,14 @@ export const metadata: Metadata = {
     'Soluções integradas de armazenagem, logística e infraestrutura corporativa: 10.000 m² com saída pela terra e pelo mar, na Baía de Guanabara. Suporte a operações Repetro.',
 }
 
-export default function LogisticaPage() {
+export default async function LogisticaPage() {
+  const [site, videos, galeria, clientes] = await Promise.all([
+    getSite(),
+    getVideos(),
+    getGaleria(),
+    getParceiros('cliente'),
+  ])
+
   return (
     <div className="page theme-logistica">
       <SubHeader nome="LIFTING LOGISTIC" nav={NAV_LOGISTICA} />
@@ -77,7 +84,7 @@ export default function LogisticaPage() {
           <div className="sub-section__inner">
             <p className="eyebrow">APRESENTAÇÃO</p>
             <h2>A base vista de perto.</h2>
-            <VideoFrame note="Vídeo de apresentação — base, píer e movimentação. Informe a URL de embed na prop src." />
+            <VideoFrame src={videos.logistica} note="Vídeo de apresentação — informe a URL de embed no painel (/studio → Vídeos)." />
           </div>
         </section>
 
@@ -94,7 +101,7 @@ export default function LogisticaPage() {
         <section className="sub-section" style={{ paddingTop: 0 }}>
           <div className="sub-section__inner">
             <div className="gallery">
-              {GALERIA.map(item => (
+              {galeria.map(item => (
                 <figure
                   className={`gallery__item${item.wide ? ' gallery__item--wide' : ''}`}
                   key={item.src}
@@ -120,7 +127,7 @@ export default function LogisticaPage() {
           texto="Atendemos operações vinculadas ao Repetro com suporte logístico e estrutural — do armazenamento de materiais e equipamentos ao apoio administrativo. Nossa estrutura atende às rigorosas exigências do mercado, com segurança, organização e excelência operacional em todas as etapas."
           botao={{
             label: 'CONSULTAR CONDIÇÕES',
-            href: `mailto:${SITE.grupo.email}?subject=${encodeURIComponent('Operação Repetro — Lifting Logistic')}`,
+            href: `mailto:${site.grupo.email}?subject=${encodeURIComponent('Operação Repetro — Lifting Logistic')}`,
           }}
         />
 
@@ -139,9 +146,9 @@ export default function LogisticaPage() {
             <p className="eyebrow">NOSSOS CLIENTES</p>
             <h2>Quem já está aqui.</h2>
             <div className="partner-row partner-row--logos">
-              {CLIENTES.map(c => (
+              {clientes.map(c => (
                 <div className="partner-logo" key={c.src}>
-                  <Image src={c.src} alt={c.alt} width={160} height={52} />
+                  <Image src={c.src} alt={c.nome} width={160} height={52} />
                 </div>
               ))}
               <div className="partner-ph">SUA EMPRESA</div>
@@ -155,7 +162,7 @@ export default function LogisticaPage() {
           texto="Operação exige gente de confiança. Procuramos profissionais de logística, movimentação e apoio portuário."
           botao={{
             label: 'ENVIAR CURRÍCULO',
-            href: `mailto:${SITE.grupo.email}?subject=${encodeURIComponent('Currículo — Lifting Logistic')}`,
+            href: `mailto:${site.grupo.email}?subject=${encodeURIComponent('Currículo — Lifting Logistic')}`,
           }}
         />
       </main>
@@ -163,17 +170,17 @@ export default function LogisticaPage() {
       <SubFooter
         intro="Fale direto com a nossa equipe — ou com o grupo, que direciona para o braço certo."
         canais={[
-          { label: SITE.grupo.telefone, href: SITE.grupo.telefoneHref },
-          { label: SITE.grupo.email,    href: `mailto:${SITE.grupo.email}` },
-          { label: SITE.logistica.instagramLabel, href: SITE.logistica.instagram, externo: true },
+          { label: site.grupo.telefone, href: site.grupo.telefoneHref },
+          { label: site.grupo.email,    href: `mailto:${site.grupo.email}` },
+          { label: site.logistica.instagramLabel, href: site.logistica.instagram, externo: true },
         ]}
-        onde={`Base operacional — ${SITE.grupo.endereco}`}
+        onde={`Base operacional — ${site.grupo.endereco}`}
         barraEsquerda="© 2026 Grupo Lifting — Lifting Logistic"
-        barraDireita={SITE.grupo.isos}
+        barraDireita={site.grupo.isos}
       />
 
       <WppFloat
-        phone={SITE.grupo.whatsapp}
+        phone={site.grupo.whatsapp}
         message="Olá! Vim pelo site da Lifting Logistic."
       />
       <ScrollReveal />

@@ -43,3 +43,6 @@ next-env.d.ts
 /requirements.txt
 /cap168_teste.txt
 /erros.txt
+
+# material bruto (fotos/textos de origem) — não versionar
+/material/

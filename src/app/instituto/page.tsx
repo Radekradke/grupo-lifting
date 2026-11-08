@@ -13,7 +13,7 @@ import { StructGrid }   from '@/components/instituto/StructGrid'
 import { CourseList }   from '@/components/instituto/CourseList'
 import { CertGrid }     from '@/components/instituto/CertGrid'
 import { DIFERENCIAIS, NAV_INSTITUTO } from '@/data/instituto'
-import { SITE } from '@/data/site'
+import { getSite, getVideos, getCursos } from '@/sanity/content'
 
 export const metadata: Metadata = {
   title: 'Instituto de Ensino Lifting — Capacitação técnica industrial, Ex, IRATA e NRs',
@@ -21,7 +21,13 @@ export const metadata: Metadata = {
     'Instituto de Ensino Lifting: capacitação técnica em áreas classificadas (Ex), IRATA N1/N2/N3, NR-35, NR-18, termografia e instrumentação. Reconhecido pela ABENDI e certificado pela IRATA International. Baía de Guanabara, RJ.',
 }
 
-export default function InstitutoPage() {
+export default async function InstitutoPage() {
+  const [site, videos, cursos] = await Promise.all([
+    getSite(),
+    getVideos(),
+    getCursos(),
+  ])
+
   return (
     <div className="page theme-instituto">
       <SubHeader
@@ -103,7 +109,7 @@ export default function InstitutoPage() {
           <div className="sub-section__inner">
             <p className="eyebrow">APRESENTAÇÃO</p>
             <h2>Conheça o Instituto por dentro.</h2>
-            <VideoFrame note="Vídeo institucional — laboratórios, centro de treinamento e turmas em ação. Informe a URL de embed na prop src." />
+            <VideoFrame src={videos.instituto} note="Vídeo institucional — informe a URL de embed no painel (/studio → Vídeos)." />
           </div>
         </section>
 
@@ -132,7 +138,7 @@ export default function InstitutoPage() {
               NR-18). Clique em cada curso para ver as unidades e a carga horária. Também
               personalizamos conteúdos e cargas horárias sob medida.
             </p>
-            <CourseList />
+            <CourseList cursos={cursos} />
           </div>
         </section>
 
@@ -151,7 +157,7 @@ export default function InstitutoPage() {
           texto="Fale com a nossa equipe para consultar datas de turmas, condições de investimento e a vaga de bolsa integral de cada turma. Empresas: solicite treinamentos in company sob medida."
           botao={{
             label: 'QUERO ME MATRICULAR',
-            href: `mailto:${SITE.instituto.email}?subject=${encodeURIComponent('Matrícula e turmas — Instituto de Ensino Lifting')}`,
+            href: `mailto:${site.instituto.email}?subject=${encodeURIComponent('Matrícula e turmas — Instituto de Ensino Lifting')}`,
           }}
         />
       </main>
@@ -165,17 +171,17 @@ export default function InstitutoPage() {
         }}
         intro="Fale direto com a secretaria do Instituto — turmas, matrículas e treinamentos corporativos."
         canais={[
-          { label: SITE.instituto.telefone, href: SITE.instituto.telefoneHref },
-          { label: SITE.instituto.email,    href: `mailto:${SITE.instituto.email}` },
-          { label: SITE.instituto.instagramLabel, href: SITE.instituto.instagram, externo: true },
+          { label: site.instituto.telefone, href: site.instituto.telefoneHref },
+          { label: site.instituto.email,    href: `mailto:${site.instituto.email}` },
+          { label: site.instituto.instagramLabel, href: site.instituto.instagram, externo: true },
         ]}
-        onde={SITE.grupo.endereco}
+        onde={site.grupo.endereco}
         barraEsquerda="© 2026 Grupo Lifting — Instituto de Ensino Lifting"
         barraDireita="Reconhecido pela ABENDI · Certificado IRATA International"
       />
 
       <WppFloat
-        phone={SITE.instituto.whatsapp}
+        phone={site.instituto.whatsapp}
         message="Olá! Quero informações sobre os cursos do Instituto de Ensino Lifting."
       />
       <ScrollReveal />

@@ -9,9 +9,11 @@ import { CtaFinal }            from '@/components/home/CtaFinal'
 import { SiteFooter }          from '@/components/home/SiteFooter'
 import { ScrollReveal }        from '@/components/shared/ScrollReveal'
 import { WppFloat }            from '@/components/shared/WppFloat'
-import { SITE }                from '@/data/site'
+import { getSite, getVideos }  from '@/sanity/content'
 
-export default function HomePage() {
+export default async function HomePage() {
+  const [site, videos] = await Promise.all([getSite(), getVideos()])
+
   return (
     <div className="page theme-grupo">
       <SiteHeader />
@@ -19,16 +21,16 @@ export default function HomePage() {
       <main>
         <HeroTriptico />
         <Manifesto />
-        <VideoBand />
+        <VideoBand src={videos.home} />
         <TerritorioEletrica />
         <TerritorioInstituto />
         <TerritorioLogistica />
-        <CtaFinal />
+        <CtaFinal grupo={site.grupo} />
       </main>
 
-      <SiteFooter />
+      <SiteFooter grupo={site.grupo} />
 
-      <WppFloat phone={SITE.grupo.whatsapp} />
+      <WppFloat phone={site.grupo.whatsapp} />
       <ScrollReveal />
     </div>
   )

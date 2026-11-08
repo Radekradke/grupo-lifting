@@ -84,6 +84,7 @@ export type Curso = {
   titulo: string
   categoria: string
   carga: string
+  valor?: string
   desc: string
   unidades?: readonly Unidade[]
   normas?: readonly string[]
