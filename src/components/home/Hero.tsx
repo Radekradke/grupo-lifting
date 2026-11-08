@@ -34,15 +34,17 @@ export function Hero() {
       <div className="hero__panels">
         {PANEIS.map((p, i) => (
           <Link key={p.id} href={p.href} className={`hpanel hpanel--${p.id}`}>
-            <Image
-              className="hpanel__img"
-              src={p.img.src}
-              alt={p.img.alt}
-              fill
-              priority={i === 0}
-              sizes="(max-width: 959px) 100vw, 40vw"
-              style={{ objectFit: 'cover', objectPosition: p.img.pos }}
-            />
+            <span className="hpanel__media">
+              <Image
+                className="hpanel__img"
+                src={p.img.src}
+                alt={p.img.alt}
+                fill
+                priority={i === 0}
+                sizes="(max-width: 959px) 100vw, 54vw"
+                style={{ objectFit: 'cover', objectPosition: p.img.pos }}
+              />
+            </span>
             <span className="hpanel__shade" aria-hidden="true" />
             <div className="hpanel__body">
               <span className="hpanel__kicker">{p.kicker}</span>

@@ -72,7 +72,6 @@ export function Header({ marca, nav, cta, voltarGrupo = false, contato = [] }: P
             </>
           ) : (
             <span className="hdr__wordmark">
-              <span className="hdr__mark" aria-hidden="true" />
               <span>
                 {marca.nome}
                 {marca.sub && <small>{marca.sub}</small>}

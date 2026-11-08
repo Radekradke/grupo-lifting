@@ -139,8 +139,8 @@ export default async function InstitutoPage() {
                       src={c.img.src}
                       alt={c.img.alt}
                       fill
-                      sizes={i === 0 ? '(max-width: 639px) 100vw, (max-width: 1099px) 50vw, 33vw' : '(max-width: 639px) 100vw, (max-width: 1099px) 50vw, 33vw'}
-                      style={{ objectFit: 'cover' }}
+                      sizes="(max-width: 639px) 100vw, (max-width: 1099px) 50vw, 33vw"
+                      style={{ objectFit: 'cover', objectPosition: c.img.pos ?? 'center' }}
                     />
                   )}
                   <div className="bento__body">

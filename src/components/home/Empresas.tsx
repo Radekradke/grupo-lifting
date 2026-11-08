@@ -53,11 +53,11 @@ export function BlocoInstituto() {
       <div className="container empresa empresa--inv">
         <figure className="empresa__media empresa__media--alta" data-reveal>
           <Image
-            src="/assets/inst/hero-instrutor-painel.jpg"
-            alt="Instrutor acompanhando aluno em montagem de painel elétrico no laboratório do Instituto"
+            src="/assets/inst/irata-acao.jpg"
+            alt="Aluno em treinamento de acesso por cordas IRATA no centro de treinamento do Instituto"
             fill
             sizes="(max-width: 959px) 100vw, 50vw"
-            style={{ objectFit: 'cover', objectPosition: '55% 50%' }}
+            style={{ objectFit: 'cover', objectPosition: '50% 30%' }}
           />
         </figure>
 

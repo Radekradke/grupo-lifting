@@ -27,15 +27,19 @@ export const ESPACOS: readonly WhatItem[] = [
 export type GaleriaItem = { src: string; alt: string; legenda: string; wide?: boolean }
 
 export const GALERIA: readonly GaleriaItem[] = [
-  { src: '/assets/log/patio-empilhadeira.jpg',    alt: 'Pátio operacional com empilhadeira de grande porte e o prédio principal ao fundo', legenda: 'Pátio operacional — movimentação com empilhadeira', wide: true },
-  { src: '/assets/log/galpao-300m2.jpg',          alt: 'Interior do galpão de 300 m² disponível para locação',  legenda: 'Galpão de 300 m² para locação' },
-  { src: '/assets/log/containers.jpg',            alt: 'Fileira de containers na área de armazenagem',          legenda: 'Área de containers' },
-  { src: '/assets/log/patio-escavadeira.jpg',     alt: 'Mini escavadeira em frente aos galpões operacionais',    legenda: 'Galpões operacionais e mini escavadeira' },
-  { src: '/assets/log/escritorio-vista-baia.jpg', alt: 'Escritório com estações de trabalho e vista para a Baía de Guanabara', legenda: 'Escritórios com vista para a baía' },
-  { src: '/assets/log/auditorio.jpg',             alt: 'Auditório com poltronas e tela de apresentação',         legenda: 'Auditório' },
-  { src: '/assets/log/refeitorio.jpg',            alt: 'Refeitório amplo e iluminado, com mesas compridas',      legenda: 'Refeitório' },
-  { src: '/assets/log/copa.jpg',                  alt: 'Copa equipada com micro-ondas, geladeira e bancada',     legenda: 'Área gourmet e copa' },
-  { src: '/assets/log/vestiario.jpg',             alt: 'Vestiário com armários individuais e pias',             legenda: 'Vestiários' },
+  { src: '/assets/log/patio-empilhadeira.jpg',     alt: 'Pátio operacional com empilhadeira de grande porte e o prédio principal ao fundo', legenda: 'Pátio operacional — movimentação com empilhadeira', wide: true },
+  { src: '/assets/log/galpao-300m2.jpg',           alt: 'Galpão de 300 m² vazio, com portão aberto para o pátio',      legenda: 'Galpão de 300 m² para locação' },
+  { src: '/assets/log/galpao-mezanino.jpg',        alt: 'Galpão com mezanino de escritórios e área de armazenagem',     legenda: 'Galpão com mezanino e armazenagem' },
+  { src: '/assets/log/containers.jpg',             alt: 'Fileira de containers na área de armazenagem',                 legenda: 'Área de containers' },
+  { src: '/assets/log/patio-escavadeira.jpg',      alt: 'Mini escavadeira em frente aos galpões operacionais',           legenda: 'Galpões operacionais e mini escavadeira' },
+  { src: '/assets/log/escritorio-vista-baia.jpg',  alt: 'Escritório com estações de trabalho e vista para a Baía de Guanabara', legenda: 'Escritórios com vista para a baía' },
+  { src: '/assets/log/escritorio-operacional.jpg', alt: 'Escritório operacional com estações de trabalho dentro do galpão', legenda: 'Escritório operacional' },
+  { src: '/assets/log/sala-reuniao.jpg',           alt: 'Sala de reunião com mesa para dez pessoas e TV',               legenda: 'Sala de reunião' },
+  { src: '/assets/inst/auditorio-1.jpg',           alt: 'Auditório com telão e poltronas',                              legenda: 'Auditório' },
+  { src: '/assets/log/area-gourmet.jpg',           alt: 'Área gourmet coberta com mesa de sinuca e churrasqueira',      legenda: 'Área gourmet' },
+  { src: '/assets/log/refeitorio.jpg',             alt: 'Refeitório amplo e iluminado, com mesas compridas',            legenda: 'Refeitório' },
+  { src: '/assets/log/copa.jpg',                   alt: 'Copa equipada com micro-ondas, geladeira e bancada',           legenda: 'Copa' },
+  { src: '/assets/log/vestiario.jpg',              alt: 'Vestiário com armários individuais e pias',                    legenda: 'Vestiários' },
 ]
 
 export const CLIENTES = [

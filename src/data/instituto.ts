@@ -27,7 +27,7 @@ export type StructCard = {
   tag: string
   titulo: string
   desc: string
-  img?: { src: string; alt: string }
+  img?: { src: string; alt: string; pos?: string }
   variante?: 'text' | 'accent'
 }
 
@@ -36,19 +36,19 @@ export const ESTRUTURA: readonly StructCard[] = [
     tag: 'MAIS DE 100 EQUIPAMENTOS “EX”',
     titulo: 'Laboratórios',
     desc: 'Ambientes que reproduzem cenários reais da indústria para praticar instalação, inspeção e manutenção em atmosferas explosivas.',
-    img: { src: '/assets/inst/laboratorio.jpg', alt: 'Laboratório com painéis e equipamentos Ex para treinamento prático' },
+    img: { src: '/assets/inst/laboratorio.jpg', alt: 'Baias do laboratório Ex com painéis e equipamentos à prova de explosão', pos: '50% 45%' },
   },
   {
     tag: '150 m² · 9 M DE PÉ-DIREITO',
     titulo: 'Centro de Treinamento',
     desc: 'Múltiplas plataformas para trabalho em altura e acesso por cordas, com equipamentos calibrados e certificados.',
-    img: { src: '/assets/inst/centro-treinamento.jpg', alt: 'Centro de treinamento com estruturas e linhas de acesso por cordas' },
+    img: { src: '/assets/inst/centro-treinamento.jpg', alt: 'Centro de treinamento IRATA com plataformas e pé-direito de 9 metros' },
   },
   {
     tag: 'VISTA PARA A BAÍA',
     titulo: 'Auditório',
     desc: 'Climatizado, com recursos audiovisuais, acústica planejada e área de coffee break — vista da Baía de Guanabara.',
-    img: { src: '/assets/inst/auditorio-1.jpg', alt: 'Auditório do Instituto de Ensino Lifting' },
+    img: { src: '/assets/inst/auditorio-1.jpg', alt: 'Auditório do Instituto com telão e vista para a baía', pos: '50% 42%' },
   },
   {
     tag: 'CONFORTO',
@@ -66,7 +66,7 @@ export const ESTRUTURA: readonly StructCard[] = [
     tag: '12 DORMITÓRIOS',
     titulo: 'Alojamento',
     desc: 'Dormitórios climatizados, armários individuais, banheiros, área de lazer e copa equipada para os participantes.',
-    img: { src: '/assets/inst/alojamento.jpg', alt: 'Dormitório do alojamento com beliches' },
+    img: { src: '/assets/inst/alojamento.jpg', alt: 'Dormitório do alojamento com beliches e armário' },
   },
 ]
 
