@@ -40,7 +40,12 @@ export function TerritorioEletrica() {
           </Link>
         </div>
 
-        <Framed variante="eletrica" legenda="Foto: equipe técnica / painel elétrico / indústria" />
+        <Framed
+          variante="eletrica"
+          legenda="Inspeção termográfica em painel elétrico"
+          src="/assets/eletrica/termografia-painel.jpg"
+          alt="Técnico da Lifting fazendo inspeção termográfica em painel elétrico"
+        />
       </div>
     </section>
   )

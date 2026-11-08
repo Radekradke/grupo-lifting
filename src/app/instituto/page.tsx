@@ -86,8 +86,8 @@ export default async function InstitutoPage() {
 
             <figure className="framed-photo">
               <Image
-                src="/assets/inst/sobre-reparo-motor.jpg"
-                alt="Instrutor e aluno do Instituto em treinamento de reparo de motor elétrico"
+                src="/assets/inst/sobre-laboratorio-turma.jpg"
+                alt="Instrutor e alunos em aula prática no laboratório do Instituto"
                 fill
                 sizes="(max-width: 1000px) 100vw, 45vw"
                 style={{ objectFit: 'cover' }}

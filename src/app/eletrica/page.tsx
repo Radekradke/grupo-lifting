@@ -68,9 +68,15 @@ export default async function EletricaPage() {
                 dos serviços.
               </p>
             </div>
-            <div className="photo-ph">
-              Foto: equipe técnica em painel elétrico / unidade offshore
-            </div>
+            <figure className="framed-photo">
+              <Image
+                src="/assets/eletrica/reparo-motor.jpg"
+                alt="Técnicos da Lifting em manutenção de motor elétrico"
+                fill
+                sizes="(max-width: 1000px) 100vw, 45vw"
+                style={{ objectFit: 'cover' }}
+              />
+            </figure>
           </div>
         </section>
 
