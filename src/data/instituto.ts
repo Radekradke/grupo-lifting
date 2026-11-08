@@ -6,6 +6,7 @@ export const NAV_INSTITUTO = [
   { label: 'ESTRUTURA',     href: '#estrutura'     },
   { label: 'CURSOS',        href: '#cursos'        },
   { label: 'CERTIFICAÇÕES', href: '#certificacoes' },
+  { label: 'CLIENTES',      href: '#clientes'      },
   { label: 'CONTATO',       href: '#contato'       },
 ]
 
@@ -33,16 +34,16 @@ export type StructCard = {
 
 export const ESTRUTURA: readonly StructCard[] = [
   {
-    tag: 'PRÁTICA REAL',
+    tag: 'MAIS DE 100 EQUIPAMENTOS “EX”',
     titulo: 'Laboratórios',
-    desc: 'Mais de 100 equipamentos “Ex” para vivenciar instalação, inspeção e manutenção em atmosferas explosivas.',
-    img: { src: '/assets/inst/termografia-2.jpg', alt: 'Alunos em treinamento prático com câmera termográfica' },
+    desc: 'Ambientes que reproduzem cenários reais da indústria para praticar instalação, inspeção e manutenção em atmosferas explosivas.',
+    img: { src: '/assets/inst/laboratorio.jpg', alt: 'Laboratório com painéis e equipamentos Ex para treinamento prático' },
   },
   {
     tag: '150 m² · 9 M DE PÉ-DIREITO',
     titulo: 'Centro de Treinamento',
     desc: 'Múltiplas plataformas para trabalho em altura e acesso por cordas, com equipamentos calibrados e certificados.',
-    img: { src: '/assets/inst/ct-irata-3.jpg', alt: 'Centro de treinamento com plataformas e linhas de acesso por cordas' },
+    img: { src: '/assets/inst/centro-treinamento.jpg', alt: 'Centro de treinamento com estruturas e linhas de acesso por cordas' },
   },
   {
     tag: 'VISTA PARA A BAÍA',
@@ -54,19 +55,19 @@ export const ESTRUTURA: readonly StructCard[] = [
     tag: 'CONFORTO',
     titulo: 'Salas de aula',
     desc: 'Ambientes amplos e climatizados, com recursos audiovisuais de alta performance e mobiliário ergonômico.',
-    variante: 'text',
+    img: { src: '/assets/inst/sala-aula.jpg', alt: 'Sala de aula climatizada com carteiras e TV' },
   },
   {
-    tag: 'PRODUÇÃO',
+    tag: 'PRODUÇÃO AUDIOVISUAL',
     titulo: 'Estúdio',
-    desc: 'Espaço audiovisual para gravação de aulas, treinamentos corporativos, podcasts e conteúdo institucional.',
-    variante: 'accent',
+    desc: 'Gravação de aulas, treinamentos corporativos, podcasts, vídeos institucionais e conteúdo para redes sociais.',
+    img: { src: '/assets/inst/estudio.jpg', alt: 'Estúdio de gravação com iluminação profissional e poltronas' },
   },
   {
     tag: '12 DORMITÓRIOS',
-    titulo: 'Alojamento & convivência',
-    desc: 'Dormitórios climatizados, armários individuais, copa, banheiros e área de lazer para os participantes.',
-    img: { src: '/assets/inst/gourmet.jpg', alt: 'Área de convivência e alojamento do Instituto' },
+    titulo: 'Alojamento',
+    desc: 'Dormitórios climatizados, armários individuais, banheiros, área de lazer e copa equipada para os participantes.',
+    img: { src: '/assets/inst/alojamento.jpg', alt: 'Dormitório do alojamento com beliches' },
   },
 ]
 
@@ -254,20 +255,39 @@ export const CURSOS: readonly Curso[] = [
   },
 ]
 
-export const CERTIFICACOES = [
+export type Certificacao = {
+  k: string
+  titulo: string
+  desc: string
+  logo?: { src: string; alt: string }
+}
+
+export const CERTIFICACOES: readonly Certificacao[] = [
   {
     k: 'RECONHECIMENTO',
     titulo: 'ABENDI',
     desc: 'Reconhecido pela Associação Brasileira de Ensaios Não Destrutivos e Inspeção, referência nacional em qualificação técnica de inspeção.',
+    logo: { src: '/assets/logos/cert-abendi.png', alt: 'ABENDI' },
   },
   {
     k: 'CERTIFICAÇÃO INTERNACIONAL',
     titulo: 'IRATA International',
     desc: 'Centro certificado para formação e certificação em acesso por cordas nos níveis 1, 2 e 3, com padrão reconhecido mundialmente.',
+    logo: { src: '/assets/logos/cert-irata.png', alt: 'IRATA International' },
   },
   {
     k: 'NORMAS TÉCNICAS',
     titulo: 'NRs & ABNT NBR',
     desc: 'Conteúdos alinhados às NR-35 e NR-18 e às normas ABNT NBR 15475, 15595 e 15986 para acesso por cordas.',
   },
+]
+
+export const CLIENTES_INSTITUTO = [
+  { src: '/assets/logos/inst-cliente-petrobras.png',    alt: 'Petrobras' },
+  { src: '/assets/logos/inst-cliente-modec.png',        alt: 'MODEC' },
+  { src: '/assets/logos/inst-cliente-jotun.png',        alt: 'Jotun' },
+  { src: '/assets/logos/inst-cliente-baker-hughes.png', alt: 'Baker Hughes' },
+  { src: '/assets/logos/inst-cliente-ecovis.png',       alt: 'Ecovis' },
+  { src: '/assets/logos/inst-cliente-jevin.png',        alt: 'Jevin' },
+  { src: '/assets/logos/inst-cliente-techocean.png',    alt: 'Grupo Techocean' },
 ] as const

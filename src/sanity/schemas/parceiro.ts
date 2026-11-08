@@ -26,6 +26,7 @@ export const parceiro = defineType({
         list: [
           { title: 'Cliente (Logística)', value: 'cliente' },
           { title: 'Parceiro (Elétrica)', value: 'parceiro' },
+          { title: 'Cliente (Instituto)', value: 'instituto' },
         ],
         layout: 'radio',
       },

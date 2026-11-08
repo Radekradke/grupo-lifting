@@ -1040,3 +1040,6 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 @media (max-width: 560px) {
   .course-item__cta { width: 100%; justify-content: center; font-size: 11px; }
 }
+
+/* Selos nas certificações (ABENDI, IRATA) */
+.cert-card__logo { display: block; height: 56px; width: auto; max-width: 100%; object-fit: contain; margin-bottom: 20px; }

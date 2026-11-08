@@ -13,7 +13,7 @@ import { StructGrid }   from '@/components/instituto/StructGrid'
 import { CourseList }   from '@/components/instituto/CourseList'
 import { CertGrid }     from '@/components/instituto/CertGrid'
 import { DIFERENCIAIS, NAV_INSTITUTO } from '@/data/instituto'
-import { getSite, getVideos, getCursos } from '@/sanity/content'
+import { getSite, getVideos, getCursos, getParceiros } from '@/sanity/content'
 
 export const metadata: Metadata = {
   title: 'Instituto de Ensino Lifting — Capacitação técnica industrial, Ex, IRATA e NRs',
@@ -22,10 +22,11 @@ export const metadata: Metadata = {
 }
 
 export default async function InstitutoPage() {
-  const [site, videos, cursos] = await Promise.all([
+  const [site, videos, cursos, clientes] = await Promise.all([
     getSite(),
     getVideos(),
     getCursos(),
+    getParceiros('instituto'),
   ])
 
   return (
@@ -85,8 +86,8 @@ export default async function InstitutoPage() {
 
             <figure className="framed-photo">
               <Image
-                src="/assets/inst/motor.jpg"
-                alt="Profissionais Lifting em manutenção de motor elétrico"
+                src="/assets/inst/sobre-reparo-motor.jpg"
+                alt="Instrutor e aluno do Instituto em treinamento de reparo de motor elétrico"
                 fill
                 sizes="(max-width: 1000px) 100vw, 45vw"
                 style={{ objectFit: 'cover' }}
@@ -148,6 +149,21 @@ export default async function InstitutoPage() {
             <p className="eyebrow">NOSSAS CERTIFICAÇÕES</p>
             <h2>Reconhecimento que dá peso ao seu certificado.</h2>
             <CertGrid />
+          </div>
+        </section>
+
+        {/* Clientes */}
+        <section id="clientes" className="sub-section">
+          <div className="sub-section__inner">
+            <p className="eyebrow">NOSSOS CLIENTES</p>
+            <h2>Empresas que confiam na nossa formação.</h2>
+            <div className="partner-row partner-row--logos">
+              {clientes.map(c => (
+                <div className="partner-logo" key={c.src}>
+                  <Image src={c.src} alt={c.nome} width={160} height={52} />
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 

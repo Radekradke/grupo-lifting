@@ -21,8 +21,8 @@ export function TerritorioInstituto() {
         <div className="course-grid">
           <figure className="course-photo">
             <Image
-              src="/assets/inst/auditorio-1.jpg"
-              alt="Auditório do Instituto de Ensino Lifting"
+              src="/assets/inst/instrutor-aluno.jpg"
+              alt="Instrutor e aluno em treinamento prático no laboratório do Instituto"
               fill
               sizes="(max-width: 1000px) 100vw, 40vw"
               style={{ objectFit: 'cover' }}

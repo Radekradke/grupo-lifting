@@ -7,7 +7,7 @@ import { sanityClient } from './client'
 import { urlForImage } from './image'
 import { hasSanity } from './env'
 import { SITE } from '@/data/site'
-import { CURSOS as CURSOS_STATIC, type Curso } from '@/data/instituto'
+import { CURSOS as CURSOS_STATIC, CLIENTES_INSTITUTO, type Curso } from '@/data/instituto'
 import { CLIENTES as CLIENTES_STATIC, GALERIA as GALERIA_STATIC } from '@/data/logistica'
 
 /* ---------- Contato (siteSettings) ---------- */
@@ -76,9 +76,11 @@ export async function getCursos(): Promise<Curso[]> {
 export type LogoItem = { nome: string; src: string; site?: string }
 
 const CLIENTES_FALLBACK: LogoItem[] = CLIENTES_STATIC.map(c => ({ nome: c.alt, src: c.src }))
+const CLIENTES_INST_FALLBACK: LogoItem[] = CLIENTES_INSTITUTO.map(c => ({ nome: c.alt, src: c.src }))
 
-export async function getParceiros(tipo: 'cliente' | 'parceiro'): Promise<LogoItem[]> {
-  const fallback = tipo === 'cliente' ? CLIENTES_FALLBACK : []
+export async function getParceiros(tipo: 'cliente' | 'parceiro' | 'instituto'): Promise<LogoItem[]> {
+  const fallback =
+    tipo === 'cliente' ? CLIENTES_FALLBACK : tipo === 'instituto' ? CLIENTES_INST_FALLBACK : []
   if (!hasSanity) return fallback
   try {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
