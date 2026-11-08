@@ -1,13 +1,12 @@
-import type { WhatItem } from '@/components/shared/WhatGrid'
+import type { WhatItem } from '@/data/types'
 
 export const NAV_INSTITUTO = [
-  { label: 'QUEM SOMOS',    href: '#sobre'         },
-  { label: 'DIFERENCIAIS',  href: '#diferenciais'  },
-  { label: 'ESTRUTURA',     href: '#estrutura'     },
-  { label: 'CURSOS',        href: '#cursos'        },
-  { label: 'CERTIFICAÇÕES', href: '#certificacoes' },
-  { label: 'CLIENTES',      href: '#clientes'      },
-  { label: 'CONTATO',       href: '#contato'       },
+  { label: 'Quem somos', href: '#sobre' },
+  { label: 'Estrutura', href: '#estrutura' },
+  { label: 'Cursos', href: '#cursos' },
+  { label: 'Certificações', href: '#certificacoes' },
+  { label: 'Clientes', href: '#clientes' },
+  { label: 'Contato', href: '#contato' },
 ]
 
 export const NUMEROS = [

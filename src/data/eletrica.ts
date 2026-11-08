@@ -1,4 +1,4 @@
-import type { WhatItem } from '@/components/shared/WhatGrid'
+import type { WhatItem } from '@/data/types'
 
 export const SERVICOS: readonly WhatItem[] = [
   { num: '01', titulo: 'Reparo',              desc: 'Calibração, reposição e substituição de peças e equipamentos, com planejamento para redução de paradas.' },
@@ -10,9 +10,8 @@ export const SERVICOS: readonly WhatItem[] = [
 ]
 
 export const NAV_ELETRICA = [
-  { label: 'SOBRE NÓS',        href: '#sobre'    },
-  { label: 'O QUE FAZEMOS',    href: '#oque'     },
-  { label: 'PARCEIROS',        href: '#parceiros'},
-  { label: 'TRABALHE CONOSCO', href: '#trabalhe' },
-  { label: 'CONTATO',          href: '#contato'  },
+  { label: 'Sobre', href: '#sobre' },
+  { label: 'Serviços', href: '#servicos' },
+  { label: 'Trabalhe conosco', href: '#trabalhe' },
+  { label: 'Contato', href: '#contato' },
 ]

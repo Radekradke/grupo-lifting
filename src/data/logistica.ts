@@ -1,4 +1,4 @@
-import type { WhatItem } from '@/components/shared/WhatGrid'
+import type { WhatItem } from '@/data/types'
 
 export const NUMEROS: readonly WhatItem[] = [
   { num: 'ÁREA TOTAL', titulo: '10.000 m²',          desc: 'Base operacional completa em localização privilegiada' },
@@ -44,10 +44,10 @@ export const CLIENTES = [
 ] as const
 
 export const NAV_LOGISTICA = [
-  { label: 'QUEM SOMOS', href: '#sobre'    },
-  { label: 'ESTRUTURA',  href: '#oque'     },
-  { label: 'REPETRO',    href: '#repetro'  },
-  { label: 'ESPAÇOS',    href: '#espacos'  },
-  { label: 'CLIENTES',   href: '#parceiros'},
-  { label: 'CONTATO',    href: '#contato'  },
+  { label: 'Quem somos', href: '#sobre' },
+  { label: 'Estrutura', href: '#estrutura' },
+  { label: 'Galeria', href: '#galeria' },
+  { label: 'Espaços', href: '#espacos' },
+  { label: 'Repetro', href: '#repetro' },
+  { label: 'Contato', href: '#contato' },
 ]
