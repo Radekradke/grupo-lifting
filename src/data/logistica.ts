@@ -27,17 +27,20 @@ export const ESPACOS: readonly WhatItem[] = [
 export type GaleriaItem = { src: string; alt: string; legenda: string; wide?: boolean }
 
 export const GALERIA: readonly GaleriaItem[] = [
-  { src: '/assets/log/dsc0103.jpg',    alt: 'Pátio operacional com empilhadeira de grande porte', legenda: 'Pátio operacional — movimentação com empilhadeira', wide: true },
-  { src: '/assets/log/containers.jpeg',alt: 'Containers na área de armazenagem',                  legenda: 'Área de containers' },
-  { src: '/assets/log/galpao.png',     alt: 'Interior de galpão para locação',                    legenda: 'Galpão de 300 m² para locação' },
-  { src: '/assets/log/wa-1.jpeg',      alt: 'Mini escavadeira em operação na base',               legenda: 'Operação na base — mini escavadeira' },
-  { src: '/assets/log/img-1.png',      alt: 'Escritórios com vista para a Baía de Guanabara',     legenda: 'Escritórios com vista para a baía' },
+  { src: '/assets/log/patio-empilhadeira.jpg',    alt: 'Pátio operacional com empilhadeira de grande porte e o prédio principal ao fundo', legenda: 'Pátio operacional — movimentação com empilhadeira', wide: true },
+  { src: '/assets/log/galpao-300m2.jpg',          alt: 'Interior do galpão de 300 m² disponível para locação',  legenda: 'Galpão de 300 m² para locação' },
+  { src: '/assets/log/containers.jpg',            alt: 'Fileira de containers na área de armazenagem',          legenda: 'Área de containers' },
+  { src: '/assets/log/patio-escavadeira.jpg',     alt: 'Mini escavadeira em frente aos galpões operacionais',    legenda: 'Galpões operacionais e mini escavadeira' },
+  { src: '/assets/log/escritorio-vista-baia.jpg', alt: 'Escritório com estações de trabalho e vista para a Baía de Guanabara', legenda: 'Escritórios com vista para a baía' },
+  { src: '/assets/log/auditorio.jpg',             alt: 'Auditório com poltronas e tela de apresentação',         legenda: 'Auditório' },
+  { src: '/assets/log/refeitorio.jpg',            alt: 'Refeitório amplo e iluminado, com mesas compridas',      legenda: 'Refeitório' },
+  { src: '/assets/log/copa.jpg',                  alt: 'Copa equipada com micro-ondas, geladeira e bancada',     legenda: 'Área gourmet e copa' },
+  { src: '/assets/log/vestiario.jpg',             alt: 'Vestiário com armários individuais e pias',             legenda: 'Vestiários' },
 ]
 
 export const CLIENTES = [
   { src: '/assets/logos/cliente-4subsea.png', alt: '4Subsea' },
   { src: '/assets/logos/cliente-vms.jpg',     alt: 'VMS Group' },
-  { src: '/assets/logos/cliente-var7.png',    alt: 'Instituto VAR 7' },
 ] as const
 
 export const NAV_LOGISTICA = [

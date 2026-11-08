@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 export function TerritorioInstituto() {
   return (
@@ -18,8 +19,14 @@ export function TerritorioInstituto() {
         </div>
 
         <div className="course-grid">
-          <figure className="course-photo framed--empty">
-            Foto: sala de treinamento / prática em bancada
+          <figure className="course-photo">
+            <Image
+              src="/assets/inst/auditorio-1.jpg"
+              alt="Auditório do Instituto de Ensino Lifting"
+              fill
+              sizes="(max-width: 1000px) 100vw, 40vw"
+              style={{ objectFit: 'cover' }}
+            />
           </figure>
 
           <div className="course course--dark">

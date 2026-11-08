@@ -84,7 +84,6 @@ export type Curso = {
   titulo: string
   categoria: string
   carga: string
-  valor?: string
   desc: string
   unidades?: readonly Unidade[]
   normas?: readonly string[]
@@ -96,9 +95,9 @@ export const CURSOS: readonly Curso[] = [
     idx: '01',
     titulo: 'Instalação, Inspeção e Manutenção de Equipamentos Ex',
     categoria: 'ÁREAS CLASSIFICADAS · APERFEIÇOAMENTO',
-    carga: '40h',
+    carga: '42h · 5 dias',
     aberto: true,
-    desc: 'Formação completa para atuar com segurança em atmosferas explosivas, cobrindo desde os princípios de proteção Ex até inspeções detalhadas de equipamentos e instalações.',
+    desc: 'Qualifica o aluno para instalação, inspeção e manutenção de equipamentos à prova de explosão em indústrias químicas, petroquímicas, plataformas de petróleo, silos de grãos, indústrias têxteis e usinas de açúcar. Pré-requisito: formação em Elétrica, Mecânica, Instrumentação ou Automação.',
     unidades: [
       { codigo: 'Ex 001', titulo: 'Princípios básicos de segurança em atmosferas explosivas', carga: '8h' },
       { codigo: 'Ex 003', titulo: 'Instalação de equipamentos com tipos de proteção Ex e sistemas de fiação', carga: '8h' },
@@ -111,13 +110,10 @@ export const CURSOS: readonly Curso[] = [
     idx: '02',
     titulo: 'Projeto, Instalação, Teste e Manutenção de Equipamentos Ex',
     categoria: 'ÁREAS CLASSIFICADAS · APERFEIÇOAMENTO',
-    carga: '40h',
-    desc: 'Trilha voltada a quem projeta e testa instalações elétricas em áreas classificadas, unindo fundamentos de proteção Ex, testes e projeto.',
+    carga: '24h · 3 dias',
+    desc: 'Para quem projeta e testa instalações elétricas em áreas classificadas: ensaios de isolação, aterramento e proteção, seleção de equipamentos Ex e projeto de instalações conforme as normas ABNT NBR IEC 60079. Pré-requisito: formação em Elétrica, Mecânica, Instrumentação ou Automação.',
     unidades: [
-      { codigo: 'Ex 001', titulo: 'Princípios básicos de segurança em atmosferas explosivas', carga: '8h' },
-      { codigo: 'Ex 003', titulo: 'Instalação de equipamentos com tipos de proteção Ex e fiação', carga: '8h' },
-      { codigo: 'Ex 004', titulo: 'Manutenção de equipamentos em atmosferas explosivas', carga: '8h' },
-      { codigo: 'Ex 006', titulo: 'Testes de equipamentos e instalações elétricas', carga: '8h' },
+      { codigo: 'Ex 006', titulo: 'Testes de equipamentos e instalações elétricas em atmosferas explosivas', carga: '8h' },
       { codigo: 'Ex 009', titulo: 'Projeto de instalações elétricas em atmosferas explosivas', carga: '8h' },
     ],
   },
@@ -125,8 +121,8 @@ export const CURSOS: readonly Curso[] = [
     idx: '03',
     titulo: 'Reparo e Revisão de Equipamentos Ex',
     categoria: 'ÁREAS CLASSIFICADAS · APERFEIÇOAMENTO',
-    carga: '24h',
-    desc: 'Especialização no reparo e revisão de equipamentos com tipos de proteção Ex, preservando a integridade da proteção após a intervenção.',
+    carga: '25h · 3 dias',
+    desc: 'Especialização no reparo e revisão de equipamentos com tipos de proteção Ex — requisitos da oficina, recuperação, reenrolamento, medições e registros —, preservando a integridade da proteção após a intervenção. Pré-requisito: formação em Elétrica, Mecânica, Instrumentação ou Automação.',
     unidades: [
       { codigo: 'Ex 001', titulo: 'Princípios básicos de segurança em atmosferas explosivas', carga: '8h' },
       { codigo: 'Ex 005', titulo: 'Reparo e revisão de equipamentos com tipos de proteção Ex', carga: '16h' },
@@ -134,6 +130,62 @@ export const CURSOS: readonly Curso[] = [
   },
   {
     idx: '04',
+    titulo: 'Fundamentos para Eletrotécnico Offshore',
+    categoria: 'ELÉTRICA & INSTRUMENTAÇÃO · FORMAÇÃO',
+    carga: '42h · 5 dias',
+    desc: 'Prepara profissionais para atuação segura e qualificada em plataformas e embarcações, unindo fundamentação teórica sólida à prática aplicada às exigências do setor offshore. Pré-requisito: formação em Elétrica.',
+    unidades: [
+      { codigo: 'Módulo 1', titulo: 'Eletricidade básica — grandezas, Lei de Ohm, circuitos série e paralelo, CC e CA, mono e trifásico' },
+      { codigo: 'Módulo 2', titulo: 'Leitura de diagramas elétricos — escala, simbologia elétrica e de instrumentação, P&ID' },
+      { codigo: 'Módulo 3', titulo: 'Instrumentos de medição e ferramentas de uso offshore' },
+      { codigo: 'Módulo 4', titulo: 'Sistema elétrico de potência — geradores, motores, transformadores, distribuição, aterramento e proteção' },
+      { codigo: 'Módulo 5', titulo: 'Sistemas de automação e controle — SCADA, CLPs e arquiteturas de controle' },
+      { codigo: 'Módulo 6', titulo: 'Risco offshore — zonas, equipamentos Ex, prensa-cabos e eletrocalhas' },
+      { codigo: 'Módulo 7', titulo: 'Segurança offshore — NR-10, NR-37, NR-35 e NR-33' },
+    ],
+    normas: ['ABNT NBR IEC 61892', 'ABNT NBR 5410', 'IEC 61131-3', 'NR-10', 'NR-37'],
+  },
+  {
+    idx: '05',
+    titulo: 'IRATA Nível 1 — Acesso por Cordas',
+    categoria: 'TRABALHO EM ALTURA · CERTIFICAÇÃO INTERNACIONAL',
+    carga: '40h + prova',
+    desc: 'Qualifica para trabalho em altura, posicionamento e resgate industrial com técnicas de acesso por cordas. O profissional N1 atua sob supervisão em inspeção, manutenção, montagem e limpeza industrial — em óleo e gás, energia eólica, mineração, construção civil e telecomunicações. Certificação reconhecida internacionalmente.',
+    unidades: [
+      { titulo: 'Conteúdo teórico — normas, avaliação de riscos, ancoragens, fator de queda e inspeção de equipamentos', carga: '8h' },
+      { titulo: 'Conteúdo prático — ascensão, descensão, transferências, progressão horizontal, auto-resgate e resgate', carga: '32h' },
+      { titulo: 'Exame prático e teórico IRATA', carga: '5º dia' },
+    ],
+    normas: ['Pré-requisito: ASO para trabalho em altura'],
+  },
+  {
+    idx: '06',
+    titulo: 'IRATA Nível 2 — Acesso por Cordas',
+    categoria: 'TRABALHO EM ALTURA · CERTIFICAÇÃO INTERNACIONAL',
+    carga: '40h + prova',
+    desc: 'O profissional N2 executa e supervisiona atividades de acesso por cordas, realiza operações de resgate e monta sistemas mais complexos. Atua em inspeções, manutenção, ensaios não destrutivos e projetos industriais, Onshore e Offshore.',
+    unidades: [
+      { titulo: 'Conteúdo teórico', carga: '8h' },
+      { titulo: 'Conteúdo prático — resgates e sistemas avançados de acesso por cordas', carga: '32h' },
+      { titulo: 'Exame prático e teórico IRATA', carga: '5º dia' },
+    ],
+    normas: ['Pré-requisito: ASO para trabalho em altura', '1.000 h + 12 meses comprovados em logbook'],
+  },
+  {
+    idx: '07',
+    titulo: 'IRATA Nível 3 — Acesso por Cordas',
+    categoria: 'TRABALHO EM ALTURA · CERTIFICAÇÃO INTERNACIONAL',
+    carga: '48h + prova',
+    desc: 'O nível mais alto da certificação: o profissional N3 planeja, supervisiona e gerencia operações de acesso por cordas, garantindo a segurança das equipes e a conformidade com os procedimentos IRATA. Atua como supervisor de campo em projetos industriais, offshore, energia, mineração e construção civil.',
+    unidades: [
+      { titulo: 'Conteúdo teórico', carga: '8h' },
+      { titulo: 'Conteúdo prático — planejamento, supervisão e resgate', carga: '32h' },
+      { titulo: 'Exame prático e teórico IRATA', carga: '5º dia' },
+    ],
+    normas: ['Pré-requisito: ASO para trabalho em altura', '2.500 h + 30 meses comprovados em logbook'],
+  },
+  {
+    idx: '08',
     titulo: 'Acionamento Eletrônico de Máquinas Elétricas',
     categoria: 'ELÉTRICA & INSTRUMENTAÇÃO · APERFEIÇOAMENTO',
     carga: 'Consultar',
@@ -149,7 +201,7 @@ export const CURSOS: readonly Curso[] = [
     ],
   },
   {
-    idx: '05',
+    idx: '09',
     titulo: 'Aplicação de Instrumentos de Medição Elétrica',
     categoria: 'ELÉTRICA & INSTRUMENTAÇÃO · APERFEIÇOAMENTO',
     carga: 'Consultar',
@@ -164,24 +216,7 @@ export const CURSOS: readonly Curso[] = [
     ],
   },
   {
-    idx: '06',
-    titulo: 'IRATA N1, N2 e N3 — Acesso por Cordas',
-    categoria: 'TRABALHO EM ALTURA & NRs · CERTIFICAÇÃO',
-    carga: 'N1 · N2 · N3',
-    desc: 'Certificação e revalidação para atividades de acesso por cordas nos níveis 1, 2 e 3, com o conteúdo normativo de segurança do trabalho em altura integrado.',
-    unidades: [
-      { titulo: 'Certificação e revalidação de pessoas — níveis 1, 2 e 3', carga: 'IRATA' },
-      { titulo: 'Trabalho em Altura', carga: 'NR-35' },
-      { titulo: 'Segurança e Saúde no Trabalho na Indústria da Construção', carga: 'NR-18' },
-    ],
-    normas: [
-      'ABNT NBR 15475 — Qualificação e certificação de pessoas',
-      'ABNT NBR 15595 — Procedimento para aplicação do método',
-      'ABNT NBR 15986 — Cordas de baixo coeficiente de alongamento',
-    ],
-  },
-  {
-    idx: '07',
+    idx: '10',
     titulo: 'Termografia Aplicada a Instalações Elétricas',
     categoria: 'ELÉTRICA & INSTRUMENTAÇÃO · APERFEIÇOAMENTO',
     carga: 'Consultar',
@@ -197,7 +232,7 @@ export const CURSOS: readonly Curso[] = [
     ],
   },
   {
-    idx: '08',
+    idx: '11',
     titulo: 'Palestras, Workshops e Mentorias',
     categoria: 'DESENVOLVIMENTO PROFISSIONAL E PESSOAL',
     carga: 'Programas',
@@ -210,7 +245,7 @@ export const CURSOS: readonly Curso[] = [
     ],
   },
   {
-    idx: '09',
+    idx: '12',
     titulo: 'Treinamentos sob medida — Elétrica & Instrumentação',
     categoria: 'IN COMPANY · PERSONALIZADO',
     carga: 'Sob demanda',

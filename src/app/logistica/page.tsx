@@ -69,8 +69,8 @@ export default async function LogisticaPage() {
             </div>
             <figure className="framed-photo">
               <Image
-                src="/assets/log/img-4.png"
-                alt="Recepção da Lifting Logistics"
+                src="/assets/log/recepcao.jpg"
+                alt="Recepção da Lifting Logistics, com o painel de clientes ao fundo"
                 fill
                 sizes="(max-width: 1000px) 100vw, 45vw"
                 style={{ objectFit: 'cover' }}

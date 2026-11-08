@@ -10,7 +10,7 @@ import { SITE } from '@/data/site'
 import { CURSOS as CURSOS_STATIC, type Curso } from '@/data/instituto'
 import { CLIENTES as CLIENTES_STATIC, GALERIA as GALERIA_STATIC } from '@/data/logistica'
 
-/* ---------- Contato / valores (siteSettings) ---------- */
+/* ---------- Contato (siteSettings) ---------- */
 export type Contato = {
   grupo: {
     nome: string; telefone: string; telefoneHref: string; email: string
@@ -52,7 +52,7 @@ export async function getCursos(): Promise<Curso[]> {
   try {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const rows = await sanityClient.fetch<any[]>(groq`*[_type == "curso"] | order(ordem asc){
-      titulo, categoria, carga, valor, desc, aberto,
+      titulo, categoria, carga, desc, aberto,
       unidades[]{codigo, titulo, carga},
       normas
     }`)
@@ -62,7 +62,6 @@ export async function getCursos(): Promise<Curso[]> {
       titulo: r.titulo ?? '',
       categoria: r.categoria ?? '',
       carga: r.carga ?? '',
-      valor: r.valor ?? undefined,
       desc: r.desc ?? '',
       aberto: r.aberto ?? false,
       unidades: r.unidades ?? undefined,

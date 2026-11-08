@@ -138,7 +138,7 @@ export default async function InstitutoPage() {
               NR-18). Clique em cada curso para ver as unidades e a carga horária. Também
               personalizamos conteúdos e cargas horárias sob medida.
             </p>
-            <CourseList cursos={cursos} />
+            <CourseList cursos={cursos} whatsapp={site.instituto.whatsapp} />
           </div>
         </section>
 
@@ -156,8 +156,8 @@ export default async function InstitutoPage() {
           titulo="Pronto para dar o próximo passo na sua carreira?"
           texto="Fale com a nossa equipe para consultar datas de turmas, condições de investimento e a vaga de bolsa integral de cada turma. Empresas: solicite treinamentos in company sob medida."
           botao={{
-            label: 'QUERO ME MATRICULAR',
-            href: `mailto:${site.instituto.email}?subject=${encodeURIComponent('Matrícula e turmas — Instituto de Ensino Lifting')}`,
+            label: 'FALAR NO WHATSAPP',
+            href: `https://wa.me/${site.instituto.whatsapp}?text=${encodeURIComponent('Olá! Quero informações sobre turmas e matrículas no Instituto de Ensino Lifting.')}`,
           }}
         />
       </main>

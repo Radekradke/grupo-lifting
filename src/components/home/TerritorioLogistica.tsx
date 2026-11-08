@@ -8,7 +8,9 @@ export function TerritorioLogistica() {
       <div className="territory__inner">
         <Framed
           variante="logistica"
-          legenda="Foto: operação logística / movimentação / frota"
+          legenda="Pátio operacional da Lifting Logistic"
+          src="/assets/log/patio-empilhadeira.jpg"
+          alt="Empilhadeira de grande porte no pátio operacional da base"
           className="framed--left"
         />
 

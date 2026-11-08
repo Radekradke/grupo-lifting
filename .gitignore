@@ -46,3 +46,5 @@ next-env.d.ts
 
 # material bruto (fotos/textos de origem) — não versionar
 /material/
+/OneDrive*/
+.claude/launch.json

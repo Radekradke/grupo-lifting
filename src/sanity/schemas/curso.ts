@@ -30,12 +30,6 @@ export const curso = defineType({
       description: 'Ex.: 40h, Consultar, N1 · N2 · N3',
     }),
     defineField({
-      name: 'valor',
-      title: 'Valor / investimento (opcional)',
-      type: 'string',
-      description: 'Ex.: R$ 1.200 ou "Consultar". Deixe vazio para não exibir.',
-    }),
-    defineField({
       name: 'aberto',
       title: 'Deixar aberto/destacado na lista?',
       type: 'boolean',
